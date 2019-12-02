@@ -15,6 +15,7 @@ MonoBehaviour:
   firerate: 1
   spread: 5
   speed: 5
+  damage: 5
   projectiles: 4
   magazineSize: 10
   autoFire: 0

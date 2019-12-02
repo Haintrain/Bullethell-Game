@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    void Start()
-    {
-        //Destroy(gameObject, 1);
-    }
+    private float damage;
 
-    void OnEnable()
-    {
-        Invoke("Deactivate", 1);
-    }
+    public float Damage { get { return damage; } set { damage = value; } }
 
-    void Deactivate()
+    void BulletHit()
     {
         GameObject bulletExplosion = ObjectPooler.sharedInstance.GetPooledObject("Bullet Explosion");
 
@@ -26,5 +20,15 @@ public class Bullet : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyController>().currentHealth -= damage;
+        }
+
+        BulletHit();
     }
 }

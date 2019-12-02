@@ -71,6 +71,7 @@ public class GunManager : MonoBehaviour
                 bullet.transform.rotation = qAngle;
 
                 bullet.transform.Rotate(0, 0, 90);
+                bullet.GetComponent<Bullet>().Damage = stats.Damage; 
 
                 //If player velocity should be added
                 //Vector2.Max(transform.parent.GetComponentInParent<Rigidbody2D>().velocity + (Vector2)bullet.transform.right * stats.Speed, (Vector2)bullet.transform.right * stats.Speed);

@@ -8,7 +8,7 @@ using UnityEngine;
 public class Gun : ScriptableObject
 {
     [SerializeField]
-    private float firerate, spread, speed;
+    private float firerate, spread, speed, damage;
     [SerializeField]
     private int projectiles, magazineSize;
     [SerializeField]
@@ -19,6 +19,7 @@ public class Gun : ScriptableObject
     public float Firerate { get { return firerate; } set {; } }
     public float Spread { get { return spread; } set {; } }
     public float Speed { get { return speed; } set {; } }
+    public float Damage { get { return damage; } set {; } }
     public int Projectiles { get { return projectiles; } set {; } }
     public int MagazineSize { get { return magazineSize; } set {; } }
     public bool AutoFire { get { return autoFire; } set {; } }

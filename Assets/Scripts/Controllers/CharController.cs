@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CharControl : MonoBehaviour
+public class CharController : MonoBehaviour
 {
     public float speed = 10f;
     private float moveHorizontal, moveVertical;
