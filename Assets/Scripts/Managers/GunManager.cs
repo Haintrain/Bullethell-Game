@@ -65,17 +65,19 @@ public class GunManager : MonoBehaviour
         {
             GameObject bullet = ObjectPooler.sharedInstance.GetPooledObject("Bullet");
 
-            if(bullet != null)
+            if (bullet != null)
             {
                 bullet.transform.position = transform.parent.parent.position + transform.right * (float)1;
                 bullet.transform.rotation = qAngle;
 
+                bullet.transform.Rotate(0, 0, 90);
+
                 //If player velocity should be added
                 //Vector2.Max(transform.parent.GetComponentInParent<Rigidbody2D>().velocity + (Vector2)bullet.transform.right * stats.Speed, (Vector2)bullet.transform.right * stats.Speed);
 
-                bullet.GetComponent<Rigidbody>().velocity = (Vector2)bullet.transform.right * stats.Speed;
-
                 bullet.SetActive(true);
+
+                bullet.GetComponent<Rigidbody2D>().velocity = -(Vector2)bullet.transform.up * stats.Speed;
             }
 
             qAngle = qDelta * qAngle;

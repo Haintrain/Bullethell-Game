@@ -16,6 +16,15 @@ public class Bullet : MonoBehaviour
 
     void Deactivate()
     {
+        GameObject bulletExplosion = ObjectPooler.sharedInstance.GetPooledObject("Bullet Explosion");
+
+        if (bulletExplosion != null)
+        {
+            bulletExplosion.transform.position = gameObject.transform.position;
+
+            bulletExplosion.SetActive(true);
+        }
+
         gameObject.SetActive(false);
     }
 }

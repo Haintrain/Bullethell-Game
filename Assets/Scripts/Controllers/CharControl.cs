@@ -4,13 +4,14 @@ using UnityEngine;
 public class CharControl : MonoBehaviour
 {
     public float speed = 10f;
-
     private float moveHorizontal, moveVertical;
 
+    Animator anims;
     Rigidbody2D rb;
 
     void Start()
     {
+        anims = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -19,7 +20,10 @@ public class CharControl : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
+        anims.SetFloat("Speed", Mathf.Sqrt(Mathf.Pow(moveHorizontal, 2) + Mathf.Pow(moveVertical, 2)));
+
         rb.velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
+
 
 
         //Char look at mouse code
